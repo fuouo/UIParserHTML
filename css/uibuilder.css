@@ -1,0 +1,53 @@
+#uipanel{
+    width: 1366px;
+    height: 768px;
+    display: inline-block;
+    border: 1px dashed #000;
+    margin: 5px;
+    position: relative;
+  }
+
+  .textbox{
+    width: 200px; 
+    background: rgba(255,255,255,0.66); 
+    border: 2px  solid rgba(0,0,0,0.5); 
+    border-radius: 4px; padding: 8px;
+  }       
+
+  .label{
+    border: none !important;
+    background: transparent;
+  }       
+
+  .button{
+    width: 200px; 
+    background: rgba(255,255,255,0.66); 
+    border: 2px  solid rgba(0,0,0,0.5); 
+    border-radius: 4px; padding: 8px;
+  }     
+
+
+  .dragobject{
+    width: 200px;
+    background: transparent;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  #drag-me::before {
+    content: "#" attr(id);
+    font-weight: bold;
+  }
+
+  .btn{
+    width: 100%;
+  }
+
+  .selectedui{
+    padding: 5px;
+    border: 1px solid #C4C4C4;
+  }
+
+  .unselectedui{
+    border: transparent;
+  }

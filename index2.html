@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/uibuilder.css">
+  <title>UIBuilder by BestB*tches</title>
+</head>
+<body>
+<!-- draggable objects. aka UI elements here !-->
+<div align="center" style="margin-bottom: 100px;">
+  <div id="uipanel" align="left">
+  	<!--  Sample lang hehe
+  	<div class="dragobject draggable uilbl">
+		<input type="text" class="form-control label" placeholder="Insert Label Text">
+	</div>
+	<div class="dragobject draggable uitxt">
+		<input type="text" class="form-control" placeholder="Insert Input Text">
+	</div>
+	<div class="dragobject draggable uibtn">
+		<button type="button" class="btn btn-primary">Button</button>
+	</div>
+	-->
+  </div>
+  
+  <div id="controlpanel" style="width: 1366px; height: 768px; display:inline-block; margin: 0;" align="left">
+    <div class="row">
+  	  <div class="col-2"><button type="button" id="exportLayout" class="btn btn-primary">Export Layout</button></div>
+      <div class="col-10">
+      <h3>Add and Customize UI Elements below</h3>
+      </div>
+    </div>
+
+    <div class="row">
+  	  <div class="col-2">
+  	  	<h3 align="center" style="border-radius: 10px; border: 1px solid rgba(0, 0, 0, 0.3); margin-top: 25px; padding: 10px;">UI Elements</h3>
+  	  </div>
+      <div class="col-10">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-2"><button type="button" id="addLabel" class="btn btn-primary">Label</button></div>
+      <div class="col-10">
+  	    <div id="labelSettings" style = "width: 100%; padding: 15px; display: none; border: 1px solid #000;">
+      		<table style="width:100%">
+			  <tr>
+			    <th>Width ( in px)</th>
+			    <td><input type="number" class="form-control" placeholder="200" id="labelWidth"></td> 
+			  </tr>
+			  <tr>
+			    <th>Height ( in px)</th>
+			    <td><input type="number" class="form-control" placeholder="35" id="labelHeight"></td> 
+			  </tr>
+			  <tr>
+			    <th>Font Size</th>
+			    <td><input type="number" class="form-control" placeholder="14" id="labelFontSize"></td> 
+			  </tr>
+			  <tr>
+			    <th>Text</th>
+			    <td><input type="text" class="form-control" placeholder="Example" id="labelText"></td> 
+			  </tr>
+			</table>
+			<br><br><br>
+			<button type="button" id="createLabel" class="btn btn-primary">Create</button>
+    
+  	    </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2"><button type="button" id="addText" class="btn btn-primary">TextBox</button></div>
+      <div class="col-10">
+  	    <div id="textSettings" style = "width: 100%; padding: 15px; display: none; border: 1px solid #000;">
+      		<table style="width:100%">
+			  <tr>
+			    <th>Width ( in px)</th>
+			    <td><input type="number" class="form-control" placeholder="200" id="textWidth"></td> 
+			  </tr>
+			  <tr>
+			    <th>Height ( in px)</th>
+			    <td><input type="number" class="form-control" placeholder="35" id="textHeight"></td> 
+			  </tr>
+			  <tr>
+			    <th>Font Size</th>
+			    <td><input type="number" class="form-control" placeholder="14" id="textFontSize"></td> 
+			  </tr>
+			  <tr>
+			    <th>Text</th>
+			    <td><input type="text" class="form-control" placeholder="Example" id="textText"></td> 
+			  </tr>
+			</table>
+			<br><br><br>
+			<button type="button" id="createText" class="btn btn-primary">Create</button>
+  	    </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2"><button type="button" id="addButton" class="btn btn-primary">Button</button></div>
+      <div class="col-10">
+  	    <div id="buttonSettings" style = "width: 100%; padding: 15px; display: none; border: 1px solid #000;">
+      		<table style="width:100%">
+			  <tr>
+			    <th>Width ( in px)</th>
+			    <td><input type="number" class="form-control" placeholder="200" id="buttontWidth"></td> 
+			  </tr>
+			  <tr>
+			    <th>Height ( in px)</th>
+			    <td><input type="number" class="form-control" placeholder="35" id="buttonHeight"></td> 
+			  </tr>
+			  <tr>
+			    <th>Font Size</th>
+			    <td><input type="number" class="form-control" placeholder="14" id="buttonFontSize"></td> 
+			  </tr>
+			  <tr>
+			    <th>Text</th>
+			    <td><input type="text" class="form-control" placeholder="Example" id="buttonText"></td> 
+			  </tr>
+			</table>
+			<br><br><br>
+			<button type="button" id="createButton" class="btn btn-primary">Create</button>
+    
+  	    </div>
+      </div>
+    </div>
+	  
+  </div>
+
+</div>
+
+
+
+</body>
+<script src="script/util/jquery-3.0.0.min.js"></script>
+<script src="script/util/interact.min.js"></script>
+<script src="script/util/FileSaver.js-master/FileSaver.js-master/FileSaver.min.js"></script>
+<script src="script/interact-drag-functions.js"></script>
+<script src="script/uitoolpanel.js"></script>
+<script src="script/uicreate.js"></script>
+<script src="script/exportlayout.js"></script>
+
+
+<script>
+
+
+
+</script>
+</html>
