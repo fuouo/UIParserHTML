@@ -7,7 +7,7 @@ interact('.draggable')
     // keep the element within the area of it's parent
     restrict: {
       restriction: "parent",
-      endOnly: true,
+      endOnly: false,
       elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
     },
     // enable autoScroll
@@ -29,10 +29,14 @@ interact('.draggable')
       
     }
   })
-  
   .resizable({
     preserveAspectRatio: false,
-    edges: { left: true, right: true, bottom: true, top: true }
+    edges: { left: true, right: true, bottom: true, top: true },
+    restrict: {
+      restriction: "parent",
+      endOnly: false,
+      elementRect: { left: 0, right: 1, top: 0, bottom: 1}
+    },
   })
   .on('resizemove', function (event) {
     var target = event.target,
@@ -53,8 +57,7 @@ interact('.draggable')
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
     //target.textContent = Math.round(event.rect.width) + '×' + Math.round(event.rect.height);
-  })
-  ;
+  });
 
 
 
