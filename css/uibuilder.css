@@ -7,6 +7,11 @@
     position: relative;
   }
 
+  .dragui{
+    width: 100%;
+    height: 100%;
+  }
+
   .textbox{
     width: 200px; 
     background: rgba(255,255,255,0.66); 
@@ -28,10 +33,12 @@
 
 
   .dragobject{
-    width: 200px;
     background: transparent;
     position: absolute;
-    cursor: pointer;
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px dashed #0000002e;
+
   }
 
   #drag-me::before {
@@ -44,10 +51,41 @@
   }
 
   .selectedui{
-    padding: 5px;
     border: 1px solid #C4C4C4;
   }
 
   .unselectedui{
     border: transparent;
+  }
+
+  .settings{
+    position: relative;
+    width: 100%; 
+    padding: 15px; 
+    display: none; 
+    border: 1px solid #000;
+  }
+
+  .hideMeButton{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    margin: 10px;
+    background-color: #d80202;
+    border-color: #d80202;
+  }
+
+  .hideMeButton:hover{
+    background-color: #a50202;
+    border-color: #9b0101;
+  }
+
+  #updateUI{
+    width: 45%;
+    margin-right: 50px;
+  }
+
+  #deleteUI{
+    width: 45%;
   }

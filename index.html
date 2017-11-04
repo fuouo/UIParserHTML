@@ -1,74 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/uibuilder.css">
-  <title></title>
+<style>
+.resize-drag {
+  background-color: #29e;
+  color: white;
+  font-size: 20px;
+  font-family: sans-serif;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 30px 20px;
+
+  width: 120px;
+
+  /* This makes things *much* easier */
+  box-sizing: border-box;
+}
+
+.resize-container {
+  width: 100%;
+  height: 240px;
+}
+</style>
 </head>
 <body>
 
-<!-- draggable objects. aka UI elements here !-->
-  <div id="uipanel" ondragover="drag_over(event)" ondrop="drop(event)">
-  <ul>
-    <li id="txt1" class="dragobject" draggable="true" ondragstart="drag_start(event)"> Drag this text </li><br>
-    <li id="txt2" class="dragobject" draggable="true" ondragstart="drag_start(event)"> Drag me
-      <input type="text" class="form-control" id="usr">
-    </li>
-    <li id="txt3" class="dragobject" draggable="true" ondragstart="drag_start(event)"> Drag me
-      <button type="button" class="btn btn-primary">Button</button>
-    </li>
-
-  </ul>
-
-
+<div class="resize-container">
+  <div class="resize-drag">
+     Resize from any edge or corner
   </div>
-
-  <!--
-   <div class="form-group draggable" draggable="true" ondragstart="drag_start(event)" style="width: 200px">
-      <label for="usr">Name:</label>
-      <input type="text" class="form-control" id="usr">
-    </div>
-    -->
-  <p>I never am really satisfied that I understand anything; because, understand it well as I may, my comprehension can only be an infinitesimal fraction of all I want to understand about the many connections and relations which occur to me, how the matter in question was first thought of or arrived at, etc., etc.</p>
-  <p>In almost every computation a great variety of arrangements for the succession of the processes is possible, and various considerations must influence the selections amongst them for the purposes of a calculating engine. One essential object is to choose that arrangement which shall tend to reduce to a minimum the time necessary for completing the calculation.</p>
-  <p>Many persons who are not conversant with mathematical studies imagine that because the business of [Babbage’s Analytical Engine] is to give its results in numerical notation, the nature of its processes must consequently be arithmetical and numerical, rather than algebraical and analytical. This is an error. The engine can arrange and combine its numerical quantities exactly as if they were letters or any other general symbols; and in fact it might bring out its results in algebraical notation, were provisions made accordingly.</p>
-  <p>The Analytical Engine has no pretensions whatever to originate anything. It can do whatever we know how to order it to perform. It can follow analysis, but it has no power of anticipating any analytical revelations or truths. Its province is to assist us in making available what we are already acquainted with.</p>
-
-
-
+</div>
 
 <script src="script/util/jquery-3.0.0.min.js"></script>
+<script src="script/util/interact.min.js"></script>
 <script>
-  $( ".dragobject" ).draggable({ containment: "#uipanel" });
+interact('.resize-drag')
+  .draggable({
+    onmove: window.dragMoveListener
+  })
+  .resizable({
+    preserveAspectRatio: false,
+    edges: { left: true, right: true, bottom: true, top: true }
+  })
+  .on('resizemove', function (event) {
+    var target = event.target,
+        x = (parseFloat(target.getAttribute('data-x')) || 0),
+        y = (parseFloat(target.getAttribute('data-y')) || 0);
 
-  function drag_start(event) {
-    var style = window.getComputedStyle(event.target, null);
-    var str = (parseInt(style.getPropertyValue("left")) - event.clientX) + ',' + (parseInt(style.getPropertyValue("top")) - event.clientY)+ ',' + event.target.id;
-    event.dataTransfer.setData("Text",str);
-  } 
+    // update the element's style
+    target.style.width  = event.rect.width + 'px';
+    target.style.height = event.rect.height + 'px';
 
-  function drop(event) {
-    var offset = event.dataTransfer.getData("Text").split(',');
-    var dm = document.getElementById(offset[2]);
+    // translate when resizing from top or left edges
+    x += event.deltaRect.left;
+    y += event.deltaRect.top;
 
-    var x = event.clientX - event.offsetX;
-    var y = event.clientY - event.offsetY;
+    target.style.webkitTransform = target.style.transform =
+        'translate(' + x + 'px,' + y + 'px)';
 
-    console.log(x + " .. " + y)
+    target.setAttribute('data-x', x);
+    target.setAttribute('data-y', y);
+    target.textContent = Math.round(event.rect.width) + '×' + Math.round(event.rect.height);
+  });
 
-    dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
-    dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
-    console.log("Dropped in x " + event.clientX + " || in y " + event.clientY);
-    console.log(event);
-    event.preventDefault();
-    return false;
+
+function dragMoveListener (event) {
+    var target = event.target,
+        // keep the dragged position in the data-x/data-y attributes
+        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+    // translate the element
+    target.style.webkitTransform =
+    target.style.transform =
+      'translate(' + x + 'px, ' + y + 'px)';
+
+    // update the posiion attributes
+    target.setAttribute('data-x', x);
+    target.setAttribute('data-y', y);
   }
 
-  function drag_over(event) {
-    event.preventDefault();
-    return false;
-  }   
+
+  // this is used later in the resizing and gesture demos
+  window.dragMoveListener = dragMoveListener;
 </script>
 </body>

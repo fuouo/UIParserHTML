@@ -7,6 +7,8 @@ $("#addLabel").click(function(event){
 	$("#labelSettings").slideDown( "slow", function(){});
 	$("#textSettings").slideUp( "slow", function(){});
 	$("#buttonSettings").slideUp( "slow", function(){});
+	$("#newSettings").slideUp( "slow", function(){});
+
 	if(isLabelSettingsVisible){
 		hideAllSettings();
 		isLabelSettingsVisible = false;
@@ -19,6 +21,8 @@ $("#addText").click(function(event){
 	$("#labelSettings").slideUp( "slow", function(){});
 	$("#textSettings").slideDown( "slow", function(){});
 	$("#buttonSettings").slideUp( "slow", function(){});
+	$("#newSettings").slideUp( "slow", function(){});
+
 	if(isTextSettingsVisible){
 		hideAllSettings();
 		isTextSettingsVisible = false;
@@ -31,6 +35,8 @@ $("#addButton").click(function(event){
 	$("#labelSettings").slideUp( "slow", function(){});
 	$("#textSettings").slideUp( "slow", function(){});
 	$("#buttonSettings").slideDown( "slow", function(){});
+	$("#newSettings").slideUp( "slow", function(){});
+
 	if(isButtonSettingsVisible){
 		hideAllSettings();
 		isButtonSettingsVisible = false;
@@ -39,6 +45,22 @@ $("#addButton").click(function(event){
 		isButtonSettingsVisible = true;
 });
 
+$(".hideSettings").click(function(event){
+	var settingContainer = $(this).parent();
+	switch(settingContainer.attr('id')){
+		case 'labelSettings':
+		isLabelSettingsVisible = false;
+		break;
+		case 'textSettings':
+		isTextSettingsVisible = false;
+		break;
+		case 'buttonSettings':
+		isButtonSettingsVisible = false;
+		break;
+	}
+
+	settingContainer.slideUp("slow", function(){});
+});
 
 function hideAllSettings(){
 	isLabelSettingsVisible = false;

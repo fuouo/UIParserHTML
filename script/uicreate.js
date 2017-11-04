@@ -23,28 +23,35 @@ $("#createButton").click(function(event){
 	var buttonHeight = $("#buttonHeight").val() || $("#buttonHeight").attr('placeholder');
 	var buttonFontSize = $("#buttonFontSize").val() || $("#buttonFontSize").attr('placeholder');
 	var buttonText = $("#buttonText").val() || $("#buttonText").attr('placeholder');
+	console.log(buttonWidth);
 	createButton(buttonWidth, buttonHeight, buttonFontSize, buttonText);
 });
 
 
 function createLabel(width, height, fontSize, text){
+	var styleContainer = "style= \"width:" + width + "px; height:" + height + "px \"";
+	var styleUI = "style=\"font-size:" + fontSize + "px;\"";
 	var style = "style= \"width:" + width + "px; height:" + height + "px; font-size: " + fontSize + "px; \""; 
-	console.log(width + " " + height + " " + text);
-	var LABEL = '<div class="dragobject draggable uilbl"> <input type="text" ' + style + ' class="form-control label" placeholder="Insert Label Text" value = "' +  text + '"> </div>';
+	var LABEL = '<div class="resize-container dragobject draggable uilbl"' + styleContainer +' > <input type="text" ' + styleUI +' class="form-control label dragui" placeholder="Insert Label Text" value = "' +  text + '"> </div>';
 	uiPanel.append(LABEL);
 
 }
 
 function createTextBox(width, height, fontSize, text){
-	var style = "style= \"width:" + width + "px; height:" + height + "px; font-size: " + fontSize + "px; \""; 
-	var TEXTBOX = '<div class="dragobject draggable uilbl"> <input type="text" ' + style + ' class="form-control" placeholder="Insert Input Text" value = "' +  text + '"> </div>';		
+	var styleContainer = "style= \"width:" + width + "px; height:" + height + "px \"";
+	var styleUI = "style=\"font-size:" + fontSize + "px;\"";
+	//var style = "style= \"width:" + width + "px; height:" + height + "px; font-size: " + fontSize + "px; \""; 
+	var TEXTBOX = '<div class="resize-container dragobject draggable uitxt" ' + styleContainer +' > <input type="text" ' + styleUI +' class="form-control dragui" placeholder="Insert Input Text" value = "' +  text + '"> </div>';		
 	uiPanel.append(TEXTBOX);
 
 }
 
 function createButton(width, height, fontSize, text){
-	var style = "style= \"width:" + width + "px; height:" + height + "px; font-size: " + fontSize + "px; \""; 
-	var BUTTON = '<div class="dragobject draggable uibtn"> <button type="button" ' + style + 'class="btn btn-primary">' + text + '</button> </div>';
+	var styleContainer = "style= \"width:" + width + "px; height:" + height + "px \"";
+	var styleUI = "style=\"font-size:" + fontSize + "px;\"";
+
+	//var style = "style= \"width:" + width + "px; height:" + height + "px; font-size: " + fontSize + "px; \""; 
+	var BUTTON = '<div class="resize-container dragobject draggable uibtn" ' + styleContainer +' > <button type="button" ' + styleUI +' class="btn btn-primary dragui">' + text + '</button> </div>';
 	uiPanel.append(BUTTON);
 
 }

@@ -10,9 +10,9 @@ $("#exportLayout").click(function(){
 		'type': identifyUIElement($(uiElements[i])),
 		'x': $(uiElements[i]).position().left < 0 ? 0 : Math.ceil($(uiElements[i]).position().left),
 		'y': $(uiElements[i]).position().top < 0 ? 0 : Math.ceil($(uiElements[i]).position().top),
-		'width': Math.ceil($(uiElements[i]).width()),
-		'height': Math.ceil($(uiElements[i]).height()),
-		'font-size': $(uiElements[i]).css('font-size').split("px")[0],
+		'width': Math.ceil($(uiElements[i]).width()) + 12,
+		'height': Math.ceil($(uiElements[i]).height()) + 12,
+		'font-size': $($(uiElements[i]).children()[0]).css('font-size').split("px")[0],
 		'text' : getTextOfElement($(uiElements[i])),
 		}
 		);
@@ -25,8 +25,8 @@ $("#exportLayout").click(function(){
 
 	console.log(jsonFile);
 
-	var blob = new Blob([jsonFile], {type: "text/plain;charset=" + document.characterSet});
-	saveAs(blob, FILENAME + ".json");
+	//var blob = new Blob([jsonFile], {type: "text/plain;charset=" + document.characterSet});
+	//saveAs(blob, FILENAME + ".json");
 })
 
 

@@ -37,13 +37,42 @@
   	  	<h3 align="center" style="border-radius: 10px; border: 1px solid rgba(0, 0, 0, 0.3); margin-top: 25px; padding: 10px;">UI Elements</h3>
   	  </div>
       <div class="col-10">
+      	<div id="newSettings" class="settings">
+      		<button type="button" class="btn btn-primary hideMeButton hideSettings">X</button>
+      		<br><br>
+      		<table style="width:100%">
+			  <tr>
+			    <th>Width ( in px)</th>
+			    <td><input type="number" class="form-control" placeholder="200" id="newWidth"></td> 
+			  </tr>
+			  <tr>
+			    <th>Height ( in px)</th>
+			    <td><input type="number" class="form-control" placeholder="35" id="newHeight"></td> 
+			  </tr>
+			  <tr>
+			    <th>Font Size</th>
+			    <td><input type="number" class="form-control" placeholder="14" id="newFontSize"></td> 
+			  </tr>
+			  <tr>
+			    <th>Text</th>
+			    <td><input type="text" class="form-control" placeholder="Example" id="newText"></td> 
+			  </tr>
+			</table>
+			<br><br><br>
+			<div align="center">
+				<button type="button" id="updateUI" class="btn btn-primary">Update</button>
+				<button type="button" id="deleteUI" class="btn btn-primary">Delete</button>
+			</div>
+		</div>
       </div>
     </div>
 
     <div class="row">
       <div class="col-2"><button type="button" id="addLabel" class="btn btn-primary">Label</button></div>
       <div class="col-10">
-  	    <div id="labelSettings" style = "width: 100%; padding: 15px; display: none; border: 1px solid #000;">
+  	    <div id="labelSettings" class="settings">
+      		<button type="button" class="btn btn-primary hideMeButton hideSettings">X</button>
+      		<br><br>
       		<table style="width:100%">
 			  <tr>
 			    <th>Width ( in px)</th>
@@ -71,7 +100,9 @@
     <div class="row">
       <div class="col-2"><button type="button" id="addText" class="btn btn-primary">TextBox</button></div>
       <div class="col-10">
-  	    <div id="textSettings" style = "width: 100%; padding: 15px; display: none; border: 1px solid #000;">
+  	    <div id="textSettings" class="settings">
+      		<button type="button" class="btn btn-primary hideMeButton hideSettings">X</button>
+      		<br><br>
       		<table style="width:100%">
 			  <tr>
 			    <th>Width ( in px)</th>
@@ -98,15 +129,17 @@
     <div class="row">
       <div class="col-2"><button type="button" id="addButton" class="btn btn-primary">Button</button></div>
       <div class="col-10">
-  	    <div id="buttonSettings" style = "width: 100%; padding: 15px; display: none; border: 1px solid #000;">
+  	    <div id="buttonSettings" class="settings">
+      		<button type="button" class="btn btn-primary hideMeButton hideSettings">X</button>
+      		<br><br>
       		<table style="width:100%">
 			  <tr>
 			    <th>Width ( in px)</th>
-			    <td><input type="number" class="form-control" placeholder="200" id="buttontWidth"></td> 
+			    <td><input type="number" class="form-control" placeholder="200" id="buttonWidth"></td> 
 			  </tr>
 			  <tr>
 			    <th>Height ( in px)</th>
-			    <td><input type="number" class="form-control" placeholder="35" id="buttonHeight"></td> 
+			    <td><input type="number" class="form-control" placeholder="40" id="buttonHeight"></td> 
 			  </tr>
 			  <tr>
 			    <th>Font Size</th>
@@ -123,13 +156,8 @@
   	    </div>
       </div>
     </div>
-	  
   </div>
-
 </div>
-
-
-
 </body>
 <script src="script/util/jquery-3.0.0.min.js"></script>
 <script src="script/util/interact.min.js"></script>
@@ -137,12 +165,6 @@
 <script src="script/interact-drag-functions.js"></script>
 <script src="script/uitoolpanel.js"></script>
 <script src="script/uicreate.js"></script>
+<script src="script/uiupdate.js"></script>
 <script src="script/exportlayout.js"></script>
-
-
-<script>
-
-
-
-</script>
 </html>
