@@ -74,7 +74,7 @@ function getTextOfElement(uiElement){
 function sortFromZ(){
 
 	uiElements.sort(function(a, b){
-		return parseInt($(a).css('z-index')) - parseInt($(b).css('z-index')); 
+		return parseInt($(b).css('z-index')) - parseInt($(a).css('z-index')); 
 	});
 
 	console.log(uiElements);

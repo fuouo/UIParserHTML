@@ -39,6 +39,8 @@ function handleFileSelect(e) {
 
 				$($("#uipanel").children()[$("#uipanel").children().length-1]).css('left', x);
 				$($("#uipanel").children()[$("#uipanel").children().length-1]).css('top', y);
+				$($("#uipanel").children()[$("#uipanel").children().length-1]).css('z-index', zindex);
+
 			}
 
 
