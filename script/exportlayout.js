@@ -27,8 +27,8 @@ $("#exportLayout").click(function(){
 
 	console.log(jsonFile);
 
-	//var file = new File([jsonFile], FILENAME + ".json", {type: "text/plain;"});
-	//saveAs(file);
+	var file = new File([jsonFile], FILENAME + ".json", {type: "text/plain;"});
+	saveAs(file);
 
 	// var blob = new Blob([jsonFile], {type: "text/plain;charset=utf-8"});
 	// saveAs(blob, FILENAME + ".json");

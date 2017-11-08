@@ -1,4 +1,7 @@
 function handleFileSelect(e) {
+
+	$("#uipanel").empty();
+
 	var file = e.target.files[0];
 	console.log(file.name);
 
@@ -23,15 +26,19 @@ function handleFileSelect(e) {
 				var text = elements[i].text;
 				var fontSize = parseInt(elements[i].fontSize);
 				var type = elements[i].type;
+				var zindex = elements[i].zindex;
 
 				// add to ui
 				if(type == "label") {
-					createLabel(x, y, width, height, fontSize, text);
+					createLabel(width, height, fontSize, text);
 				} else if(type == "button") {
-					createButton(x, y, width, height, fontSize, text);
+					createButton(width, height, fontSize, text);
 				} else if(type == "textbox") {
-					createTextBox(x, y, width, height, fontSize, text);
+					createTextBox(width, height, fontSize, text);
 				}
+
+				$($("#uipanel").children()[$("#uipanel").children().length-1]).css('left', x);
+				$($("#uipanel").children()[$("#uipanel").children().length-1]).css('top', y);
 			}
 
 
