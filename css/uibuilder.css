@@ -38,7 +38,7 @@
     box-sizing: border-box;
     padding: 5px;
     border: 1px dashed #0000002e;
-
+    box-shadow: -3px 3px 5px 0px #88888875;
   }
 
   #drag-me::before {
@@ -81,11 +81,9 @@
     border-color: #9b0101;
   }
 
-  #updateUI{
     width: 45%;
     margin-right: 50px;
   }
 
-  #deleteUI{
     width: 45%;
   }

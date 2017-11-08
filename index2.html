@@ -8,29 +8,28 @@
   <title>UIBuilder by BestB*tches</title>
 </head>
 <body>
-<!-- draggable objects. aka UI elements here !-->
+
 <div align="center" style="margin-bottom: 100px;">
   <div id="uipanel" align="left">
-  	<!--  Sample lang hehe
-  	<div class="dragobject draggable uilbl">
-		<input type="text" class="form-control label" placeholder="Insert Label Text">
-	</div>
-	<div class="dragobject draggable uitxt">
-		<input type="text" class="form-control" placeholder="Insert Input Text">
-	</div>
-	<div class="dragobject draggable uibtn">
-		<button type="button" class="btn btn-primary">Button</button>
-	</div>
-	-->
+  <!-- draggable objects. aka UI elements here !-->
   </div>
   
   <div id="controlpanel" style="width: 1366px; height: 768px; display:inline-block; margin: 0;" align="left">
     <div class="row">
-  	  <div class="col-2"><button type="button" id="exportLayout" class="btn btn-primary">Export Layout</button></div>
-      <div class="col-10">
+  	  <div class="col-2">
+  	  	<button type="button" id="exportLayout" class="btn btn-primary">Export Layout</button>
+  	  </div>
+  	  <div class="col-2">
+  	  	<button type="button" id="loadLayout" class="btn btn-primary">Load Layout</button>
+  	  </div>
+  	  <div class="col-2">
+  	  	<button type="button" id="clearLayout" class="btn btn-primary">Clear Layout</button>
+  	  </div>
+      <div class="col-6">
       <h3>Add and Customize UI Elements below</h3>
       </div>
     </div>
+    <br>
 
     <div class="row">
   	  <div class="col-2">
@@ -38,8 +37,20 @@
   	  </div>
       <div class="col-10">
       	<div id="newSettings" class="settings">
+      		<div align="center">
+      			<h3>Auto Update Functions</h3>
+				<button type="button" id="orderBack" class="btn btn-primary">Bring Backward</button>
+				<button type="button" id="orderFront" class="btn btn-primary">Bring Forward</button><br><br>
+				<button type="button" id="orderToBack" class="btn btn-primary">Bring To Back</button>
+				<button type="button" id="orderToFront" class="btn btn-primary">Bring To Front</button>
+
+			</div>
+
       		<button type="button" class="btn btn-primary hideMeButton hideSettings">X</button>
       		<br><br>
+      		<div align="center">
+	      		<h3>Manual Update Functions</h3>
+    		</div>
       		<table style="width:100%">
 			  <tr>
 			    <th>Width ( in px)</th>

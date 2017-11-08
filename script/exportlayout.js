@@ -3,6 +3,7 @@ $("#exportLayout").click(function(){
 	var obj = [];
 
 	getAllUIElements();
+
 	for(var i=0; i<uiElements.length; i++){
 
 		obj.push( 
@@ -12,6 +13,7 @@ $("#exportLayout").click(function(){
 		'y': $(uiElements[i]).position().top < 0 ? 0 : Math.ceil($(uiElements[i]).position().top),
 		'width': Math.ceil($(uiElements[i]).width()) + 12,
 		'height': Math.ceil($(uiElements[i]).height()) + 12,
+		'zindex': parseInt($(uiElements[i]).css('z-index')),
 		'font-size': $($(uiElements[i]).children()[0]).css('font-size').split("px")[0],
 		'text' : getTextOfElement($(uiElements[i])),
 		}
@@ -25,8 +27,8 @@ $("#exportLayout").click(function(){
 
 	console.log(jsonFile);
 
-	var file = new File([jsonFile], FILENAME + ".json", {type: "text/plain;"});
-	saveAs(file);
+	//var file = new File([jsonFile], FILENAME + ".json", {type: "text/plain;"});
+	//saveAs(file);
 
 	// var blob = new Blob([jsonFile], {type: "text/plain;charset=utf-8"});
 	// saveAs(blob, FILENAME + ".json");
@@ -36,6 +38,7 @@ $("#exportLayout").click(function(){
 
 function getAllUIElements(){
 	uiElements = $("#uipanel").children();
+	sortFromZ();
 }
 
 function identifyUIElement(uiElement){
@@ -60,12 +63,19 @@ function getTextOfElement(uiElement){
 	var txt = "";
 
 	var txt = $(uiElement.children()[0]).text();
-	console.log(!$(uiElement.children()[0]).text());
 	if(!$(uiElement.children()[0]).text()){
-		console.log("Getting value instead")
 		txt = $(uiElement.children()[0]).val();
 	}
 
 	return txt;
 
+}
+
+function sortFromZ(){
+
+	uiElements.sort(function(a, b){
+		return parseInt($(a).css('z-index')) - parseInt($(b).css('z-index')); 
+	});
+
+	console.log(uiElements);
 }

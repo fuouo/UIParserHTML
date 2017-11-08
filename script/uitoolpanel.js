@@ -3,6 +3,10 @@ var isLabelSettingsVisible = false;
 var isTextSettingsVisible = false;
 var isButtonSettingsVisible = false;
 
+$("#clearLayout").click(function(event){
+	$("#uipanel").empty();
+});
+
 $("#addLabel").click(function(event){
 	$("#labelSettings").slideDown( "slow", function(){});
 	$("#textSettings").slideUp( "slow", function(){});
