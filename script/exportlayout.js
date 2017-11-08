@@ -12,7 +12,7 @@ $("#exportLayout").click(function(){
 		'y': $(uiElements[i]).position().top < 0 ? 0 : Math.ceil($(uiElements[i]).position().top),
 		'width': Math.ceil($(uiElements[i]).width()) + 12,
 		'height': Math.ceil($(uiElements[i]).height()) + 12,
-		'font-size': $($(uiElements[i]).children()[0]).css('font-size').split("px")[0],
+		'fontSize': $($(uiElements[i]).children()[0]).css('font-size').split("px")[0],
 		'text' : getTextOfElement($(uiElements[i])),
 		}
 		);
