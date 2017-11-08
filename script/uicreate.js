@@ -89,7 +89,35 @@ function setZOfElement(element){
 			if(max < currentz)
 				max = currentz;
 		}
-
 		$(element).css('z-index', parseInt(max) + 1);
 	}
+}
+
+function createLabel(x, y, width, height, fontSize, text){
+	var styleContainer = "style= \"width:" + width + "px; height:" + height + "px; left:" + x + "px; top:" + y + "px; \"";
+	var styleUI = "style=\"font-size:" + fontSize + "px;\"";
+	var style = "style= \"width:" + width + "px; height:" + height + "px; font-size: " + fontSize + "px; \""; 
+	var LABEL = '<div class="resize-container dragobject draggable uilbl"' + styleContainer +' > <input type="text" ' + styleUI +' class="form-control label dragui" placeholder="' + text + '" value = "' +  text + '"> </div>';
+	uiPanel.append(LABEL);
+
+}
+
+function createTextBox(x, y, width, height, fontSize, text){
+	var styleContainer = "style= \"width:" + width + "px; height:" + height + "px; left:" + x + "px; top:" + y + "px; \"";
+	var styleUI = "style=\"font-size:" + fontSize + "px;\"";
+	//var style = "style= \"width:" + width + "px; height:" + height + "px; font-size: " + fontSize + "px; \""; 
+	var TEXTBOX = '<div class="resize-container dragobject draggable uitxt" ' + styleContainer +' > <input type="text" ' + styleUI +' class="form-control dragui" placeholder="' + text + '" value = "' +  text + '"> </div>';		
+	uiPanel.append(TEXTBOX);
+
+}
+
+function createButton(x, y, width, height, fontSize, text){
+	var styleContainer = "style= \"width:" + width + "px; height:" + height + "px; left:" + x + "px; top:" + y + "px; \"";
+
+	var styleUI = "style=\"font-size:" + fontSize + "px;\"";
+
+	//var style = "style= \"width:" + width + "px; height:" + height + "px; font-size: " + fontSize + "px; \""; 
+	var BUTTON = '<div class="resize-container dragobject draggable uibtn" ' + styleContainer +' > <button type="button" ' + styleUI +' class="btn btn-primary dragui">' + text + '</button> </div>';
+	uiPanel.append(BUTTON);
+
 }

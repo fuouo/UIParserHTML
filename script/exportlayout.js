@@ -14,7 +14,7 @@ $("#exportLayout").click(function(){
 		'width': Math.ceil($(uiElements[i]).width()) + 12,
 		'height': Math.ceil($(uiElements[i]).height()) + 12,
 		'zindex': parseInt($(uiElements[i]).css('z-index')),
-		'font-size': $($(uiElements[i]).children()[0]).css('font-size').split("px")[0],
+		'fontSize': $($(uiElements[i]).children()[0]).css('font-size').split("px")[0],
 		'text' : getTextOfElement($(uiElements[i])),
 		}
 		);
