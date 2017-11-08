@@ -81,9 +81,11 @@
     border-color: #9b0101;
   }
 
+  #updateUI, #orderBack, #orderToBack{
     width: 45%;
     margin-right: 50px;
   }
 
+  #deleteUI, #orderFront, #orderToFront{
     width: 45%;
   }
